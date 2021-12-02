@@ -1,5 +1,7 @@
 package co.edu.unbosque.ventas.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,12 +11,12 @@ public class Ventas {
 	@Id
 	private int codigoVenta;
 	private long cedulaCliente;
-	private DetalleVentas detalleVenta;
+	private List<DetalleVentas> detalleVenta;
 	private long ivaVenta;
 	private long subtotalVenta;
 	private long totalVenta;
 	
-	public Ventas(int codigoVenta, long cedulaCliente, DetalleVentas detalleVenta, long ivaVenta, long subtotalVenta,
+	public Ventas(int codigoVenta, long cedulaCliente, List<DetalleVentas> detalleVenta, long ivaVenta, long subtotalVenta,
 			long totalVenta) {
 		super();
 		this.codigoVenta = codigoVenta;
@@ -25,11 +27,11 @@ public class Ventas {
 		this.totalVenta = totalVenta;
 	}
 
-	public DetalleVentas getDetalleVenta() {
+	public List<DetalleVentas> getDetalleVenta() {
 		return detalleVenta;
 	}
 
-	public void setDetalleVenta(DetalleVentas detalleVenta) {
+	public void setDetalleVenta(List<DetalleVentas> detalleVenta) {
 		this.detalleVenta = detalleVenta;
 	}
 
