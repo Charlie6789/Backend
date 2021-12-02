@@ -23,7 +23,7 @@ public class VentasController {
 	@Autowired
 	VentasRepository ventaRepository;
 
-	  @PostMapping("/ventas")
+	  @PostMapping("/crear")
 	  public ResponseEntity<Ventas> createVenta(@RequestBody Ventas venta) {
 		  try {
 			    Ventas _venta = ventaRepository.save(new Ventas(venta.getCodigoVenta(), venta.getCedulaCliente(),venta.getDetalleVenta(),venta.getIvaVenta(),venta.getSubtotalVenta(),venta.getTotalVenta()));
@@ -32,7 +32,7 @@ public class VentasController {
 			    return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 			  }
 	  }
-	  @GetMapping("/ventas")
+	  @GetMapping("/listar")
 	  public ResponseEntity<List<Ventas>> getAllVentas() {
 		  try {
 			    List<Ventas> ventas = new ArrayList<Ventas>();
