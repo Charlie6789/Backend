@@ -36,9 +36,9 @@ public class VentasController {
 	  public ResponseEntity<List<Ventas>> getAllVentas() {
 		  try {
 			    List<Ventas> ventas = new ArrayList<Ventas>();
-
+			    
 			    ventaRepository.findAll().forEach(ventas::add);
-
+	
 			    if (ventas.isEmpty()) {
 			      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			    }
